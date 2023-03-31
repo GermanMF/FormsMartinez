@@ -1,0 +1,12 @@
+.sidebar{
+    width: var(--sidebar-width);
+    padding-top: 10vh;
+    position: fixed;
+    height: calc(100vh - var(--navbar-height));
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(71, 69, 69);
+}

@@ -1,0 +1,7 @@
+main{
+    margin-left: calc(var(--sidebar-width)) ;
+    margin-top: calc(var(--navbar-height));
+    height: 100%;
+    /* padding-left: 10px; */
+    /* padding-top: 100px; */
+}

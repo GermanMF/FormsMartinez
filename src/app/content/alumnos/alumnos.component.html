@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="3"></th>
+          <th colspan="4" class="text-center">Calificaciones</th>
+        </tr>
+        <tr class="headers">
+          <th>Id</th>
+          <th class="left-align">Nombre completo</th>
+          <th>Matematicas</th>
+          <th>Español</th>
+          <th>Ciencias Naturales</th>
+          <th>Civismo</th>
+          <th>Promedio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let alumno of alumnos"
+          [ngClass]="{
+            'table-danger': getTotal(alumno.id) < 6,
+            'table-warning': getTotal(alumno.id) >= 6 && getTotal(alumno.id) < 8,
+            'table-success': getTotal(alumno.id) >= 8 && getTotal(alumno.id) < 9,
+            'table-primary': getTotal(alumno.id) >= 9
+          }"
+        >
+          <td>{{ alumno.id }}</td>
+          <td class="left-align">
+            {{ alumno.firstName + " " + alumno.lastName }}
+          </td>
+          <td>{{ alumno.matematicas }}</td>
+          <td>{{ alumno.espanol }}</td>
+          <td>{{ alumno.cienciasNaturales }}</td>
+          <td>{{ alumno.civismo }}</td>
+          <td
+            [ngClass]="{
+              'bg-danger': getTotal(alumno.id) < 6,
+              'bg-warning': getTotal(alumno.id) >= 6 && getTotal(alumno.id) < 8,
+              'bg-success': getTotal(alumno.id) >= 8 && getTotal(alumno.id) < 9,
+              'bg-primary': getTotal(alumno.id) >= 9
+            }"
+          >
+            {{ getTotal(alumno.id) | number: '1.0-2' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <br/>
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div class="col-3">
+                <h5>
+                  Alumnos con calificación <span class="text-danger">reprobatoria</span>
+                </h5>
+                <br/>
+                <ul  *ngFor="let alumno of alumnos" class="list-group">
+                  <li *ngIf="getTotal(alumno.id)<6" class="list-group-item"> {{ alumno.firstName + " " + alumno.lastName }} </li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <h5>
+                    Alumnos con calificación <span class="text-success">aprobatoria</span>
+                  </h5>
+                  <br/>
+                  <ul  *ngFor="let alumno of alumnos" class="list-group">
+                    <li *ngIf="getTotal(alumno.id)>=6" class="list-group-item" > {{ alumno.firstName + " " + alumno.lastName }} </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+  </div>
+  
