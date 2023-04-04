@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-credenciales',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./credenciales.component.css']
 })
 export class CredencialesComponent {
-
+  
 }

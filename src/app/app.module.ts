@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+import { UsuarioModule } from './forms/usuario/usuario.module';
+
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './forms/usuario/usuario.component';
 import { CredencialesComponent } from './forms/credenciales/credenciales.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -11,6 +12,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { AlumnosComponent } from './content/alumnos/alumnos.component';
 import { CardComponent } from './components/card/card.component';
+import { UsuarioComponent } from './forms/usuario/usuario.component';
 
 const routes: Routes = [
   {path: 'form/credencial', component: CredencialesComponent},
@@ -22,7 +24,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
     CredencialesComponent,
     NavbarComponent,
     SidebarComponent,
@@ -33,6 +34,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    UsuarioModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

@@ -1,1 +1,127 @@
-<p>usuario works!</p>
+<section class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Formulario de usuarios</h5>
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+      <div class="row mb-3">
+        <div class="col-5">
+          <label for="clave" class="form-label">Clave de control</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clave"
+            aria-describedby="claveControl"
+            formControlName="clave"
+            readonly
+          />
+          <div id="claveControl" class="form-text">
+            Generada automáticamente | No modificable
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            [class.is-invalid]="nombreControl.invalid && nombreControl.touched"
+            class="form-control"
+            id="nombre"
+            aria-describedby="nombreUsuario"
+            formControlName="nombre"
+          />
+          <div
+            *ngIf="nombreControl.hasError('required')"
+            class="invalid-feedback"
+          >
+            Campo requerido
+          </div>
+          <div
+            *ngIf="nombreControl.hasError('minlength')"
+            class="invalid-feedback"
+          >
+            Se esperan al menos 5 caractéres
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input
+            type="text"
+            [class.is-invalid]="
+              apellidoControl.invalid && apellidoControl.touched
+            "
+            class="form-control"
+            id="apellido"
+            aria-describedby="apellidoUsuario"
+            formControlName="apellido"
+          />
+          <div
+            *ngIf="apellidoControl.hasError('required')"
+            class="invalid-feedback"
+          >
+            Campo requerido
+          </div>
+          <div
+            *ngIf="apellidoControl.hasError('minlength')"
+            class="invalid-feedback"
+          >
+            Se esperan al menos 5 caractéres
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="email" class="form-label">Tipo de Usuario:</label>
+          <div class="row container-fluid">
+            <div class="col-6 form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="tipo"
+                id="tipo1"
+                value="maestro"
+                formControlName="tipo"
+                [class.is-invalid]="tipoControl.invalid"
+              />
+              <label class="form-check-label" for="tipo1"> Maestro </label>
+              <div
+                *ngIf="tipoControl.hasError('required')"
+                class="invalid-feedback"
+              >
+                Campo requerido
+              </div>
+            </div>
+            <div class="col-6 form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="tipo"
+                id="tipo2"
+                value="tutor"
+                formControlName="tipo"
+                [class.is-invalid]="tipoControl.invalid && tipoControl"
+              />
+              <label class="form-check-label" for="tipo2">
+                Padre o Tutor
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailUsuario"
+            formControlName="email"
+            [class.is-invalid]="emailControl.invalid && emailControl.touched"
+          />
+          <div *ngIf="emailControl.hasError('email')" class="invalid-feedback">
+            No es un formato de mail valido
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</section>
