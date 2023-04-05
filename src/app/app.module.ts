@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { UsuarioModule } from './forms/usuario/usuario.module';
+import { CredencialesModule } from './forms/credenciales/credenciales.module';
 
 import { AppComponent } from './app.component';
 import { CredencialesComponent } from './forms/credenciales/credenciales.component';
@@ -24,7 +25,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CredencialesComponent,
     NavbarComponent,
     SidebarComponent,
     WrapperComponent,
@@ -35,6 +35,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     UsuarioModule,
+    CredencialesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
